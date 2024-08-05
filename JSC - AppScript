@@ -1,0 +1,28 @@
+// Função para preencher data e hora na planilha
+function preencherDataHoraNaPlanilha() {
+  // Abre a planilha pelo ID
+  var planilha = SpreadsheetApp.openById('10SfGmurff1k4wMuDzJalRNtPJWcZGLzFOqmqeSYzcpY');
+  
+  // Seleciona a aba desejada
+  var aba = planilha.getSheetByName('leads');
+  
+  // Obtém a última linha preenchida na coluna A
+  var ultimaLinha = aba.getLastRow();
+  
+  // Obtém a data e hora atual
+  var dataHoraAtual = new Date();
+  
+  // Preenche a data na próxima linha vazia da coluna A
+  aba.getRange(ultimaLinha, 1).setValue(dataHoraAtual);
+  
+  // Preenche a hora na próxima linha vazia da coluna B
+  aba.getRange(ultimaLinha, 2).setValue(dataHoraAtual.getHours() + ":" + dataHoraAtual.getMinutes());
+}
+
+// Função que é chamada quando os dados do webhook são recebidos
+function webhookRecebido(dados) {
+  // Você pode processar os dados recebidos aqui
+  
+  // Chamada da função para preencher a data e hora na planilha
+  preencherDataHoraNaPlanilha();
+}

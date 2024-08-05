@@ -1,0 +1,14 @@
+function() {
+  var array = [
+    {
+      'item_name': '{{dlv-nameProduct}}',
+      'item_id': '{{dlv-idProduct}}', 
+      'item_brand': '{{dlv-brand}}',
+      'item_category': '{{dlv-category}}',
+      'price': '{{dlv-price}}',
+      
+    },
+   
+  ];
+  return array;
+}
